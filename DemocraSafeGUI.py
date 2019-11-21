@@ -1,8 +1,19 @@
 # Import appJar module
 
-from appJar import gui    # Imports all components of appJar
+from appJar import gui, appjar    # Imports all components of appJar
 import os
 import sys
+
+
+root = appjar.Tk()
+
+width = root.winfo_screenwidth()
+height = root.winfo_screenheight()
+
+root.destroy()
+
+
+
 
 def Start(select):
     if select == "Start Voting":  # If user clicks 'Submit'
@@ -26,7 +37,7 @@ def Switch2(rb):
 
 def Switch3(rb):
     program.startSubWindow("Done",modal = True)
-    program.setSize(600, 600)
+    program.setSize(width, height)
 
     program.setBg("light blue")  # Sets background colour
 
@@ -169,7 +180,7 @@ def ButtonHandler1(select):  # Called when user clicks button
         quit()  # Close program
 
 # Widgets
-program = gui("Welcome!", "600x600")  # Sets size and title of main GUI
+program = gui("Welcome!", str(width)+"x"+str(height))  # Sets size and title of main GUI
 
 program.addLabel("title","DemocraSafe")  # Title
 program.getLabelWidget("title").config(font="Times 30 roman underline")
@@ -179,7 +190,7 @@ program.setButtonFont(size=50)
 program.setBg("light blue")  # Sets background colour
 
 program.startSubWindow("Start Voting", modal = True)
-program.setSize(600, 600)
+program.setSize(width, height)
 program.setBg("light blue")  # Sets background colour
 
 program.addLabel("option1", "Voting Instructions")  # Title
@@ -202,7 +213,7 @@ program.stopSubWindow()
 #program.zoomImage("logo", -10)  # Shrinks image
 
 program.startSubWindow("I understood", modal = True)
-program.setSize(600, 600)
+program.setSize(width, height)
 program.setBg("light blue")  # Sets background colour
 
 # Labels
@@ -225,7 +236,7 @@ program.addButtons(["Next Question", "More Info", "Close"], ButtonHandler1)
 program.stopSubWindow()
 
 program.startSubWindow("Next Question", modal = True)
-program.setSize(600, 600)
+program.setSize(width, height)
 program.setBg("light blue")  # Sets background colour
 
 # Labels
@@ -248,7 +259,7 @@ program.addButtons(["Last Question", "More Info ", "Close "], ButtonHandler1)
 program.stopSubWindow()
 
 program.startSubWindow("Last Question", modal = True)
-program.setSize(600, 600)
+program.setSize(width, height)
 program.setBg("light blue")  # Sets background colour
 
 # Labels
